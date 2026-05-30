@@ -1,4 +1,4 @@
-# AI-Document-Platform
+# Document-Repository-Platform
 
 **Installations I had to do on my Ubuntu:**
 - sudo apt update && sudo apt upgrade -y
