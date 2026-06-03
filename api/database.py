@@ -16,7 +16,7 @@ def init_db():
     conn.commit()
     conn.close()
 
-def insert_document(filename, file_size):
+def insert_document(filename, page_count, file_size):
     conn = sqlite3.connect("documents.db")
     cursor = conn.cursor()
 
@@ -24,14 +24,13 @@ def insert_document(filename, file_size):
                    INSERT INTO documents (filename, page_count, 
                                         file_size, upload_date)
                      VALUES (?, ?, ?, ?)""", 
-                    (filename, 0, file_size, datetime.now().isoformat()))
+                    (filename, page_count, file_size, datetime.now().isoformat()))
     conn.commit()
     conn.close()
 
 def get_all_documents():
 
     conn = sqlite3.connect("documents.db")
-
     cursor = conn.cursor()
 
     cursor.execute("""
@@ -40,7 +39,17 @@ def get_all_documents():
     """)
 
     documents = cursor.fetchall()
-
     conn.close()
+    return documents
 
+def search_documents(search_term):
+    conn = sqlite3.connect("documents.db")
+    cursor = conn.cursor()
+    cursor.execute(""" SELECT *
+                   FROM documents
+                   WHERE filename LIKE ?
+                   """, (f"%{search_term}%",))
+
+    documents = cursor.fetchall()
+    conn.close()
     return documents
