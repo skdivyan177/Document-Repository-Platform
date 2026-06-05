@@ -1,10 +1,32 @@
-# Document-Repository-Platform
+# Document Repository Platform
 
-**Installations I had to do on my Ubuntu:**
-- sudo apt update && sudo apt upgrade -y
-- sudo apt install docker.io -y
-- sudo systemctl enable docker
-- sudo systemctl start docker
-- sudo apt install docker-compose -y
-- sudo apt install git -y
-- sudo apt install ufw -y
+This project is a Flask-based document repository that supports file uploads, PDF metadata extraction, document search, along with file retrieval. Metadata is automatically stored in a SQLite database, the categories being filename, page count, file size, and upload date.
+
+## Technologies
+
+- Python
+- Flask
+- SQLite
+- PyPDF
+- Docker
+- Git
+
+## Features
+
+- Upload documents
+- Extract PDF metadata
+- Store metadata in SQLite
+- Search documents by filename
+- Download stored documents
+
+## Run
+Commands:
+- pip install flask pypdf 
+- python app.py 
+Application runs on: http://localhost:5000
+
+## Documentation
+
+- docs/architecture.md
+- docs/troubleshooting.md
+- docs/architecture.png
