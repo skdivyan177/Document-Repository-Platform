@@ -21,8 +21,10 @@ This project is a Flask-based document repository that supports file uploads, PD
 
 ## Run
 Commands:
-'''pip install flask pypdf 
-python app.py'''
+```bash
+pip install flask pypdf
+python app.py
+```
 Application runs on: http://localhost:5000
 
 ## Documentation
